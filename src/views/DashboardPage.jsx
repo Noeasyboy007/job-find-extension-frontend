@@ -6,13 +6,27 @@ export function DashboardPage() {
 
   return (
     <section className="section-stack">
-      <article className="hero-panel">
+      <article className="hero-panel hero-panel-rich">
         <p className="eyebrow">MVP Dashboard</p>
         <h2>Welcome back, {user?.first_name || "Job Seeker"}.</h2>
-        <p>
+        <p className="hero-panel-copy">
           This dashboard connects directly to your NestJS API for auth, resumes,
           and saved jobs so you can move from random applications to targeted outreach.
         </p>
+        <div className="hero-quick-links">
+          <Link
+            className="text-btn"
+            to="/app/jobs"
+          >
+            View jobs
+          </Link>
+          <Link
+            className="text-btn"
+            to="/app/resumes"
+          >
+            Manage resumes
+          </Link>
+        </div>
       </article>
 
       <div className="kpi-grid">

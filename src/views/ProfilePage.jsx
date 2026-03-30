@@ -58,11 +58,11 @@ export function ProfilePage() {
     <section className="section-stack">
       <header className="section-head">
         <h2>Profile</h2>
-        <p>Update your account details synced with `PATCH /auth/profile`.</p>
+        <p>Update your account details.</p>
       </header>
 
       <form
-        className="card form-grid"
+        className="card form-grid form-grid-two-col"
         onSubmit={handleSubmit}
       >
         <label>

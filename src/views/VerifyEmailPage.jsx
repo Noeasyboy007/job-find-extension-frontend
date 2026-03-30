@@ -48,7 +48,7 @@ export function VerifyEmailPage() {
 
   return (
     <div className="auth-shell">
-      <section className="auth-card">
+      <section className="auth-card auth-card-elevated">
         <p className="eyebrow">Email Verification</p>
         <h1>Activate your account</h1>
 
@@ -107,3 +107,4 @@ export function VerifyEmailPage() {
     </div>
   );
 }
+

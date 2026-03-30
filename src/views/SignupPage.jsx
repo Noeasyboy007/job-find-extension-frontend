@@ -50,7 +50,7 @@ export function SignupPage() {
 
   return (
     <div className="auth-shell">
-      <section className="auth-card">
+      <section className="auth-card auth-card-elevated">
         <p className="eyebrow">Create Account</p>
         <h1>Build your HireReach profile</h1>
         <p className="muted">After signup, verify email before login.</p>
@@ -136,3 +136,4 @@ export function SignupPage() {
     </div>
   );
 }
+

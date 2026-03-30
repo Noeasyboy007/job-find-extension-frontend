@@ -30,7 +30,7 @@ export function LoginPage() {
 
   return (
     <div className="auth-shell">
-      <section className="auth-card">
+      <section className="auth-card auth-card-elevated">
         <p className="eyebrow">HireReach Login</p>
         <h1>Step into strategic job search</h1>
         <p className="muted">Use your account to manage resumes and saved jobs.</p>
@@ -74,3 +74,4 @@ export function LoginPage() {
     </div>
   );
 }
+

@@ -115,7 +115,7 @@ export function OrganizedJobDescription({ job }) {
 
       {(job?.status === "captured" || job?.status === "processing") &&
       !hasStructured ? (
-        <p className="muted">Structured description is processing…</p>
+        <p className="muted">Structured description is processing...</p>
       ) : null}
 
       {hasStructured ? (
@@ -225,7 +225,7 @@ export function jobDescriptionSnippet(job, maxLen = 140) {
     (parsed?.about_company && String(parsed.about_company).trim()) ||
     "";
   const raw = job?.description && String(job.description).trim();
-  const text = fromParsed || raw || "";
-  if (text.length <= maxLen) return text || "—";
-  return `${text.slice(0, maxLen - 1).trim()}…`;
+  const text = (fromParsed || raw || "").replace(/\s+/g, " ").trim();
+  if (text.length <= maxLen) return text || "-";
+  return `${text.slice(0, maxLen - 3).trim()}...`;
 }

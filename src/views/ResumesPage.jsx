@@ -111,7 +111,7 @@ export function ResumesPage() {
       </header>
 
       <form
-        className="card form-grid"
+        className="card form-grid form-grid-two-col"
         onSubmit={handleUpload}
       >
         <label>

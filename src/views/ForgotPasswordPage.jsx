@@ -25,7 +25,7 @@ export function ForgotPasswordPage() {
 
   return (
     <div className="auth-shell">
-      <section className="auth-card">
+      <section className="auth-card auth-card-elevated">
         <p className="eyebrow">Password Recovery</p>
         <h1>Request a reset link</h1>
         <form
@@ -60,4 +60,5 @@ export function ForgotPasswordPage() {
     </div>
   );
 }
+
 

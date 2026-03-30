@@ -44,7 +44,7 @@ export function ResetPasswordPage() {
 
   return (
     <div className="auth-shell">
-      <section className="auth-card">
+      <section className="auth-card auth-card-elevated">
         <p className="eyebrow">Reset Password</p>
         <h1>Set a new password</h1>
         <form
@@ -90,3 +90,4 @@ export function ResetPasswordPage() {
     </div>
   );
 }
+
