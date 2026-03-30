@@ -10,6 +10,7 @@ export const JOB_SOURCE_PLATFORMS = [
 
 export const JOB_STATUSES = [
   "captured",
+  "processing",
   "ready_for_analysis",
   "analyzed",
   "failed",

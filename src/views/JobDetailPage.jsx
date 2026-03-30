@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getJobById, updateJobStatus } from "../api/jobsApi";
 import { JOB_STATUSES } from "../constants/enums";
+import { OrganizedJobDescription } from "../ui/OrganizedJobDescription";
 import { StatusPill } from "../ui/StatusPill";
+
+function formatValue(value) {
+  if (value === null || value === undefined || value === "") return "N/A";
+  return String(value);
+}
 
 export function JobDetailPage() {
   const { id } = useParams();
@@ -66,17 +72,35 @@ export function JobDetailPage() {
     <section className="section-stack">
       <header className="section-head">
         <h2>Job detail #{job.id}</h2>
-        <p>Track metadata from captured posting and manual status updates.</p>
+        <p>Full captured job payload and lifecycle details.</p>
       </header>
       <article className="card detail-grid">
         <p>
           <strong>Title:</strong> {job.title}
         </p>
         <p>
+          <strong>User ID:</strong> {formatValue(job.user_id)}
+        </p>
+        <p>
           <strong>Company:</strong> {job.company_name}
         </p>
         <p>
-          <strong>Location:</strong> {job.location || "N/A"}
+          <strong>Location:</strong> {formatValue(job.location)}
+        </p>
+        <p>
+          <strong>Work mode:</strong> {formatValue(job.work_mode)}
+        </p>
+        <p>
+          <strong>Work time:</strong> {formatValue(job.work_time)}
+        </p>
+        <p>
+          <strong>Salary:</strong> {formatValue(job.salary)}
+        </p>
+        <p>
+          <strong>Employment type:</strong> {formatValue(job.employment_type)}
+        </p>
+        <p>
+          <strong>Experience level:</strong> {formatValue(job.experience_level)}
         </p>
         <p>
           <strong>Source platform:</strong> {job.source_platform}
@@ -97,6 +121,15 @@ export function JobDetailPage() {
         </p>
         <p>
           <strong>Status:</strong> <StatusPill value={job.status} />
+        </p>
+        <p>
+          <strong>Created at:</strong> {formatValue(job.createdAt || job.created_at)}
+        </p>
+        <p>
+          <strong>Updated at:</strong> {formatValue(job.updatedAt || job.updated_at)}
+        </p>
+        <p>
+          <strong>Deleted at:</strong> {formatValue(job.deletedAt || job.deleted_at)}
         </p>
         <label>
           Update status
@@ -123,13 +156,22 @@ export function JobDetailPage() {
           </select>
         </label>
         <div>
-          <strong>Description:</strong>
-          <pre className="code-block">{job.description}</pre>
+          <strong>Skills (from intake):</strong>
+          <p>{job.skills?.length ? job.skills.join(", ") : "None"}</p>
         </div>
-        <div>
-          <strong>Skills:</strong>
-          <p>{job.skills?.length ? job.skills.join(", ") : "No skills extracted"}</p>
-        </div>
+      </article>
+
+      <article className="card job-detail-description-card">
+        <OrganizedJobDescription job={job} />
+      </article>
+
+      <article className="card detail-grid">
+        <details>
+          <summary>Structured JSON (parsed_job)</summary>
+          <pre className="code-block">
+            {JSON.stringify(job.parsed_job, null, 2)}
+          </pre>
+        </details>
         <details>
           <summary>Raw payload JSON</summary>
           <pre className="code-block">{JSON.stringify(job.raw_payload, null, 2)}</pre>
@@ -150,4 +192,3 @@ export function JobDetailPage() {
     </section>
   );
 }
-

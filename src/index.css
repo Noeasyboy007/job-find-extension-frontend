@@ -353,6 +353,17 @@ label {
   vertical-align: top;
 }
 
+.table td.cell-preview {
+  max-width: 17rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--ink-600, #4a554a);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .inline-actions {
   display: flex;
   gap: 0.35rem;
@@ -462,6 +473,147 @@ label {
   box-shadow: 0 24px 54px rgba(18, 20, 33, 0.2);
 }
 
+.modal-card-wide {
+  width: min(980px, 100%);
+  max-height: 86vh;
+  overflow: auto;
+}
+
+.job-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.job-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 1rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: #fcfffb;
+}
+
+.job-modal-section {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.job-modal-section h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-700);
+}
+
+.job-modal-section--description {
+  margin-top: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.job-detail-description-card {
+  margin-top: 0.5rem;
+}
+
+/* Organized job description (parsed_job) */
+.job-desc-organized {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.job-desc-page-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink-900, #1a1f1a);
+  letter-spacing: -0.02em;
+}
+
+.job-desc-block {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.job-desc-heading {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ink-800, #2d332d);
+}
+
+.job-desc-prose {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.job-desc-prose p {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--ink-700, #3d453d);
+  font-size: 0.95rem;
+}
+
+.job-desc-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.4rem;
+  color: var(--ink-700, #3d453d);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.job-desc-list li {
+  padding-left: 0.15rem;
+}
+
+.job-skill-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.job-skill-tag {
+  margin: 0;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--mint-100, #e8f5ef);
+  color: var(--ink-800, #2d332d);
+  border: 1px solid var(--line, #cfd8c0);
+}
+
+.job-desc-mirror .job-desc-block + .job-desc-block {
+  margin-top: 0.15rem;
+}
+
+.job-desc-raw,
+.job-desc-extra {
+  margin-top: 0.25rem;
+}
+
+.job-desc-raw summary,
+.job-desc-extra summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink-700, #3d453d);
+  margin-bottom: 0.35rem;
+}
+
+.job-desc-fallback {
+  max-height: 280px;
+}
+
+.modal-card .job-desc-organized .job-desc-page-title {
+  font-size: 1.2rem;
+}
+
 .modal-actions {
   display: flex;
   justify-content: flex-end;
@@ -497,6 +649,10 @@ label {
 
 @media (max-width: 720px) {
   .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .job-modal-grid {
     grid-template-columns: 1fr;
   }
 
