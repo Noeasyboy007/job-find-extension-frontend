@@ -12,7 +12,7 @@ export function PasswordField({
   const [visible, setVisible] = useState(false);
 
   return (
-    <label>
+    <label className="password-field-label">
       {label}
       <div className="password-wrap">
         <input
@@ -37,4 +37,3 @@ export function PasswordField({
     </label>
   );
 }
-

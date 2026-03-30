@@ -127,6 +127,10 @@ label {
   color: var(--ink-700);
 }
 
+.password-field-label {
+  width: 100%;
+}
+
 .input {
   border: 1px solid rgba(12, 28, 48, 0.16);
   border-radius: 0.7rem;
@@ -143,25 +147,32 @@ label {
 
 .password-wrap {
   position: relative;
+  width: 100%;
 }
 
 .password-input {
+  width: 100%;
+  display: block;
   padding-right: 5.2rem;
 }
 
 .password-toggle-btn {
   position: absolute;
   top: 50%;
-  right: 0.45rem;
+  right: 0.4rem;
   transform: translateY(-50%);
-  border: 1px solid rgba(12, 28, 48, 0.14);
-  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(12, 28, 48, 0.16);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--ink-700);
-  border-radius: 0.55rem;
-  padding: 0.25rem 0.5rem;
+  border-radius: 0.52rem;
+  padding: 0.22rem 0.52rem;
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
+}
+
+.password-toggle-btn:hover {
+  background: #ffffff;
 }
 
 .textarea {
