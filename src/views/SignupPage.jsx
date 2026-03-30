@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { signup } from "../api/authApi";
+import { HIREREACH_LOGO_URL } from "../constants/branding";
 import { useCountryCodes } from "../hooks/useCountryCodes";
 import { PasswordField } from "../ui/PasswordField";
 
@@ -51,6 +52,14 @@ export function SignupPage() {
   return (
     <div className="auth-shell">
       <section className="auth-card auth-card-elevated">
+        <div className="auth-brand-row">
+          <img
+            alt="HireReach logo"
+            className="auth-brand-logo"
+            src={HIREREACH_LOGO_URL}
+          />
+          <p className="eyebrow">HireReach</p>
+        </div>
         <p className="eyebrow">Create Account</p>
         <h1>Build your HireReach profile</h1>
         <p className="muted">After signup, verify email before login.</p>

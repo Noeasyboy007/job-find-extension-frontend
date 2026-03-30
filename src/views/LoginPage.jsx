@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { HIREREACH_LOGO_URL } from "../constants/branding";
 import { useAuth } from "../state/useAuth";
 import { PasswordField } from "../ui/PasswordField";
 
@@ -31,6 +32,14 @@ export function LoginPage() {
   return (
     <div className="auth-shell">
       <section className="auth-card auth-card-elevated">
+        <div className="auth-brand-row">
+          <img
+            alt="HireReach logo"
+            className="auth-brand-logo"
+            src={HIREREACH_LOGO_URL}
+          />
+          <p className="eyebrow">HireReach</p>
+        </div>
         <p className="eyebrow">HireReach Login</p>
         <h1>Step into strategic job search</h1>
         <p className="muted">Use your account to manage resumes and saved jobs.</p>

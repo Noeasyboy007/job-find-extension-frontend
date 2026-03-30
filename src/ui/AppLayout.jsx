@@ -1,4 +1,5 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { HIREREACH_LOGO_URL } from "../constants/branding";
 import { useAuth } from "../state/useAuth";
 
 const navItems = [
@@ -21,7 +22,14 @@ export function AppLayout() {
     <div className="app-shell">
       <header className="topbar topbar-glass">
         <div className="topbar-copy">
-          <p className="eyebrow">HireReach</p>
+          <div className="brand-row">
+            <img
+              alt="HireReach logo"
+              className="brand-logo"
+              src={HIREREACH_LOGO_URL}
+            />
+            <p className="eyebrow">HireReach</p>
+          </div>
           <h1 className="app-title">Find the right job. Reach the right person.</h1>
           <p className="topbar-subtitle">
             Track opportunities, stay organized, and move faster with focused outreach.

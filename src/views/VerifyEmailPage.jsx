@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { resendVerification, verifyEmail } from "../api/authApi";
+import { HIREREACH_LOGO_URL } from "../constants/branding";
 
 export function VerifyEmailPage() {
   const navigate = useNavigate();
@@ -49,6 +50,14 @@ export function VerifyEmailPage() {
   return (
     <div className="auth-shell">
       <section className="auth-card auth-card-elevated">
+        <div className="auth-brand-row">
+          <img
+            alt="HireReach logo"
+            className="auth-brand-logo"
+            src={HIREREACH_LOGO_URL}
+          />
+          <p className="eyebrow">HireReach</p>
+        </div>
         <p className="eyebrow">Email Verification</p>
         <h1>Activate your account</h1>
 

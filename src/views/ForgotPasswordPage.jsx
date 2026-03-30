@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { forgotPassword } from "../api/authApi";
+import { HIREREACH_LOGO_URL } from "../constants/branding";
 
 export function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -26,6 +27,14 @@ export function ForgotPasswordPage() {
   return (
     <div className="auth-shell">
       <section className="auth-card auth-card-elevated">
+        <div className="auth-brand-row">
+          <img
+            alt="HireReach logo"
+            className="auth-brand-logo"
+            src={HIREREACH_LOGO_URL}
+          />
+          <p className="eyebrow">HireReach</p>
+        </div>
         <p className="eyebrow">Password Recovery</p>
         <h1>Request a reset link</h1>
         <form
