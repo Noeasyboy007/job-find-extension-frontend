@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getJobById } from "../api/jobsApi";
+import { JobAnalysisPanel } from "../ui/JobAnalysisPanel";
 import { OrganizedJobDescription } from "../ui/OrganizedJobDescription";
 import { StatusPill } from "../ui/StatusPill";
 import { formatDateTimeIST, formatJobSourceLabel } from "../utils/format";
@@ -15,6 +16,16 @@ export function JobDetailPage() {
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const reloadJob = useCallback(async () => {
+    if (!id) return;
+    try {
+      const response = await getJobById(id);
+      setJob(response.data);
+    } catch {
+      /* keep existing job on refresh failure */
+    }
+  }, [id]);
 
   useEffect(() => {
     async function loadJob() {
@@ -117,6 +128,12 @@ export function JobDetailPage() {
       <article className="card job-detail-description-card">
         <OrganizedJobDescription job={job} />
       </article>
+
+      <JobAnalysisPanel
+        jobId={job.id}
+        jobStatus={job.status}
+        onJobUpdated={reloadJob}
+      />
 
       <article className="card detail-grid detail-grid-json">
         <details>

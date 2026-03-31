@@ -48,5 +48,18 @@
  * @property {string[] | null} skills
  */
 
+/**
+ * @typedef {Object} JobAnalysis
+ * @property {number} id
+ * @property {number} job_id
+ * @property {number} user_id
+ * @property {'queued'|'processing'|'completed'|'failed'} status
+ * @property {number | null} fit_score
+ * @property {Record<string, unknown> | null} result
+ * @property {string | null} error_message
+ * @property {string} [created_at]
+ * @property {string} [updated_at]
+ */
+
 export {};
 

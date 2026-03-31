@@ -47,6 +47,12 @@ export function formatJobStatusLabel(value) {
   return toTitleLabel(value);
 }
 
+export function formatJobAnalysisStatusLabel(value) {
+  if (value === null || value === undefined || value === "") return "Unknown";
+  if (value === "completed") return "Complete";
+  return toTitleLabel(value);
+}
+
 export function formatDateTimeIST(value) {
   if (value === null || value === undefined || value === "") return "N/A";
   const date = new Date(value);

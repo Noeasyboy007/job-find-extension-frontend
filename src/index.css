@@ -506,6 +506,18 @@ label {
   color: #922626;
 }
 
+.status-queued {
+  background: rgba(210, 230, 255, 0.55);
+  border-color: rgba(70, 120, 180, 0.32);
+  color: #1f4f7a;
+}
+
+.status-completed {
+  background: rgba(166, 241, 220, 0.54);
+  border-color: rgba(28, 153, 127, 0.4);
+  color: #0c6955;
+}
+
 .detail-grid {
   display: grid;
   gap: 0.62rem;
@@ -619,6 +631,76 @@ label {
 
 .job-detail-description-card {
   margin-top: 0.5rem;
+}
+
+.job-analysis-card {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.job-analysis-head h3 {
+  margin-bottom: 0.25rem;
+}
+
+.job-analysis-meta {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.job-analysis-meta .small-meta {
+  font-size: 0.82rem;
+}
+
+.job-analysis-actions {
+  display: grid;
+  gap: 0.5rem;
+  align-items: start;
+}
+
+.job-analysis-actions .primary-btn {
+  width: fit-content;
+}
+
+.job-analysis-hint {
+  font-size: 0.88rem;
+  max-width: 42rem;
+}
+
+.fit-score-value {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #0c6955;
+}
+
+.job-analysis-body {
+  display: grid;
+  gap: 1rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(12, 28, 48, 0.1);
+}
+
+.analysis-section h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--ink-700);
+}
+
+.analysis-section p {
+  margin: 0;
+  color: var(--ink-700);
+  line-height: 1.55;
+  font-size: 0.94rem;
+}
+
+.analysis-bullet-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--ink-700);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  display: grid;
+  gap: 0.35rem;
 }
 
 /* Organized job description (parsed_job) */
