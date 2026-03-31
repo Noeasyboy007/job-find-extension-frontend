@@ -1,7 +1,23 @@
 import { apiRequest } from "./http";
 
-export function getJobs() {
-  return apiRequest("/jobs", { auth: true });
+function buildJobsQuery(params = {}) {
+  const query = new URLSearchParams();
+  const keys = ["page", "limit", "q", "title", "company_name", "source_platform"];
+
+  for (const key of keys) {
+    const raw = params[key];
+    if (raw === undefined || raw === null) continue;
+    const value = String(raw).trim();
+    if (!value) continue;
+    query.set(key, value);
+  }
+
+  const queryString = query.toString();
+  return queryString ? `?${queryString}` : "";
+}
+
+export function getJobs(params = {}) {
+  return apiRequest(`/jobs${buildJobsQuery(params)}`, { auth: true });
 }
 
 export function getJobById(id) {
@@ -23,4 +39,3 @@ export function updateJobStatus(id, status) {
     body: JSON.stringify({ status }),
   });
 }
-

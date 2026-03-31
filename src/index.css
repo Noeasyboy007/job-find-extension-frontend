@@ -1069,6 +1069,28 @@ summary {
   margin-bottom: 0.68rem;
 }
 
+.jobs-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(170px, 220px) auto auto;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+  align-items: center;
+}
+
+.jobs-search-input,
+.jobs-filter-select {
+  min-width: 0;
+}
+
+.jobs-pagination {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 .table-wrap {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38);
 }
@@ -1192,6 +1214,10 @@ summary {
 
 @media (max-width: 900px) {
   .form-grid-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-controls {
     grid-template-columns: 1fr;
   }
 
