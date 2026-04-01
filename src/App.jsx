@@ -7,6 +7,7 @@ import { ForgotPasswordPage } from "./views/ForgotPasswordPage.jsx";
 import { JobDetailPage } from "./views/JobDetailPage.jsx";
 import { JobsPage } from "./views/JobsPage.jsx";
 import { LoginPage } from "./views/LoginPage.jsx";
+import { ApplyProfilePage } from "./views/ApplyProfilePage.jsx";
 import { ProfilePage } from "./views/ProfilePage.jsx";
 import { ResumesPage } from "./views/ResumesPage.jsx";
 import { ResetPasswordPage } from "./views/ResetPasswordPage.jsx";
@@ -111,6 +112,10 @@ function App() {
         <Route
           path="profile"
           element={<ProfilePage />}
+        />
+        <Route
+          path="apply-profile"
+          element={<ApplyProfilePage />}
         />
       </Route>
 

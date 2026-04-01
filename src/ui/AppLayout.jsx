@@ -6,6 +6,7 @@ const navItems = [
   { to: "/app/dashboard", label: "Dashboard" },
   { to: "/app/resumes", label: "Resumes" },
   { to: "/app/jobs", label: "Jobs" },
+  { to: "/app/apply-profile", label: "Apply Profile" },
   { to: "/app/profile", label: "Profile" },
 ];
 

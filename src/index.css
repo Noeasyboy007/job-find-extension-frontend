@@ -1487,6 +1487,164 @@ summary {
   flex-shrink: 0;
 }
 
+/* ────────── Apply Profile Page ────────── */
+
+.apply-profile-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.apply-profile-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.apply-profile-section-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink-700);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.apply-field-hint {
+  font-size: 0.8rem;
+  color: var(--ink-500);
+}
+
+/* Experience row */
+.apply-exp-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.apply-exp-label {
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* CTC row */
+.apply-ctc-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.apply-ctc-currency {
+  width: 80px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.apply-ctc-sep {
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Notice period presets */
+.apply-notice-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.apply-notice-preset-btn {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.32rem 0.75rem;
+  border-radius: 99px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--ink-700);
+  cursor: pointer;
+  transition: background 0.14s, border-color 0.14s, color 0.14s;
+}
+
+.apply-notice-preset-btn:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.apply-notice-preset-btn.active {
+  background: linear-gradient(135deg, #1ca9c9, #19a89b);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Preferred locations */
+.apply-preferred-loc-section {
+  margin-top: 0.75rem;
+}
+
+.apply-preferred-loc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  min-height: 1.8rem;
+}
+
+.apply-loc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.22rem 0.6rem;
+  border-radius: 99px;
+  background: rgba(28, 169, 201, 0.12);
+  color: #0f6d8a;
+  border: 1px solid rgba(28, 169, 201, 0.22);
+}
+
+.apply-loc-tag-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: #0f6d8a;
+  padding: 0 2px;
+  display: flex;
+  align-items: center;
+}
+
+.apply-preferred-loc-add-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.apply-preferred-loc-add-row .input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Radio group */
+.apply-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.apply-radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.apply-profile-save-btn {
+  justify-self: start;
+  min-width: 160px;
+}
+
 /* ────────── Toastify ────────── */
 
 .Toastify__toast {
