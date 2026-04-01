@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getJobById } from "../api/jobsApi";
 import { JobAnalysisPanel } from "../ui/JobAnalysisPanel";
+import { OutreachPanel } from "../ui/OutreachPanel";
 import { OrganizedJobDescription } from "../ui/OrganizedJobDescription";
 import { StatusPill } from "../ui/StatusPill";
 import { formatDateTimeIST, formatJobSourceLabel } from "../utils/format";
@@ -16,6 +17,7 @@ export function JobDetailPage() {
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [analysisStatus, setAnalysisStatus] = useState("");
 
   const reloadJob = useCallback(async () => {
     if (!id) return;
@@ -133,6 +135,12 @@ export function JobDetailPage() {
         jobId={job.id}
         jobStatus={job.status}
         onJobUpdated={reloadJob}
+        onAnalysisStatusChange={setAnalysisStatus}
+      />
+
+      <OutreachPanel
+        jobId={job.id}
+        analysisStatus={analysisStatus}
       />
 
       <article className="card detail-grid detail-grid-json">

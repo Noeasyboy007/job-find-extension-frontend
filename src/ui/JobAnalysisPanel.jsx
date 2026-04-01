@@ -24,8 +24,9 @@ function resultList(items) {
  * @param {number} props.jobId
  * @param {string} props.jobStatus
  * @param {() => Promise<void>} [props.onJobUpdated] refresh parent job (e.g. after analysis completes)
+ * @param {(status: string) => void} [props.onAnalysisStatusChange] notifies parent of current analysis status
  */
-export function JobAnalysisPanel({ jobId, jobStatus, onJobUpdated }) {
+export function JobAnalysisPanel({ jobId, jobStatus, onJobUpdated, onAnalysisStatusChange }) {
   const [analysis, setAnalysis] = useState(null);
   const [loadError, setLoadError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -53,6 +54,8 @@ export function JobAnalysisPanel({ jobId, jobStatus, onJobUpdated }) {
 
   useEffect(() => {
     const st = analysis?.status;
+    onAnalysisStatusChange?.(st ?? "");
+
     const shouldPoll = st === "queued" || st === "processing";
     if (!shouldPoll) {
       if (
