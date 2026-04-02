@@ -667,6 +667,23 @@ label {
   max-width: 42rem;
 }
 
+.job-analysis-retry {
+  display: grid;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(12, 28, 48, 0.08);
+}
+
+.job-analysis-retry .primary-btn {
+  width: fit-content;
+}
+
+.manual-process-btn {
+  color: #0c6955;
+  font-weight: 600;
+}
+
 .fit-score-value {
   font-weight: 800;
   font-size: 1.15rem;
@@ -1219,7 +1236,8 @@ summary {
 }
 
 .table-jobs td:nth-child(8) {
-  width: 110px;
+  min-width: 11rem;
+  white-space: nowrap;
 }
 
 .action-open-btn {

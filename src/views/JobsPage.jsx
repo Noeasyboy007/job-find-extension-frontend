@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getJobs } from "../api/jobsApi";
+import { getJobs, retryJobStructure } from "../api/jobsApi";
 import { JOB_SOURCE_PLATFORMS } from "../constants/enums";
 import { jobDescriptionSnippet } from "../ui/OrganizedJobDescription";
 import { StatusPill } from "../ui/StatusPill";
@@ -22,6 +22,7 @@ export function JobsPage() {
     total: 0,
     total_pages: 1,
   });
+  const [retryBusyId, setRetryBusyId] = useState(null);
 
   async function loadJobs() {
     setLoading(true);
@@ -83,6 +84,19 @@ export function JobsPage() {
     setQuery("");
     setSourcePlatform("");
     setPage(1);
+  }
+
+  async function handleManualProcess(jobId) {
+    setRetryBusyId(jobId);
+    setError("");
+    try {
+      await retryJobStructure(jobId);
+      await loadJobs();
+    } catch (err) {
+      setError(err.message || "Could not re-queue job processing");
+    } finally {
+      setRetryBusyId(null);
+    }
   }
 
   const canGoPrev = meta.page > 1;
@@ -157,6 +171,16 @@ export function JobsPage() {
                       </td>
                       <td>{formatDateTimeIST(job.createdAt || job.created_at)}</td>
                       <td className="inline-actions">
+                        {job.status === "failed" ? (
+                          <button
+                            className="text-btn manual-process-btn"
+                            type="button"
+                            disabled={retryBusyId === job.id || loading}
+                            onClick={() => handleManualProcess(job.id)}
+                          >
+                            {retryBusyId === job.id ? "Queueing…" : "Manual process"}
+                          </button>
+                        ) : null}
                         <Link
                           className="text-btn action-open-btn"
                           to={`/app/jobs/${job.id}`}

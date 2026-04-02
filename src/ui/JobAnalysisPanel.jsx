@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { analyzeJob, getJobAnalysis } from "../api/jobAnalysisApi";
+import { retryJobStructure } from "../api/jobsApi";
 import { JobAnalysisStatusPill } from "./JobAnalysisStatusPill";
 import { formatDateTimeIST } from "../utils/format";
 
@@ -32,6 +33,8 @@ export function JobAnalysisPanel({ jobId, jobStatus, onJobUpdated, onAnalysisSta
   const [loading, setLoading] = useState(true);
   const [analyzeBusy, setAnalyzeBusy] = useState(false);
   const [analyzeError, setAnalyzeError] = useState("");
+  const [retryStructureBusy, setRetryStructureBusy] = useState(false);
+  const [retryStructureError, setRetryStructureError] = useState("");
   const prevStatusRef = useRef(null);
 
   const loadAnalysis = useCallback(async () => {
@@ -91,6 +94,20 @@ export function JobAnalysisPanel({ jobId, jobStatus, onJobUpdated, onAnalysisSta
     }
   }
 
+  async function handleManualProcessJob() {
+    setRetryStructureError("");
+    setRetryStructureBusy(true);
+    try {
+      await retryJobStructure(jobId);
+      await onJobUpdated?.();
+      await loadAnalysis();
+    } catch (err) {
+      setRetryStructureError(err.message || "Could not re-queue structuring");
+    } finally {
+      setRetryStructureBusy(false);
+    }
+  }
+
   const result = analysis?.result && typeof analysis.result === "object" ? analysis.result : null;
   const summary = typeof result?.summary === "string" ? result.summary : null;
   const recommendation =
@@ -138,6 +155,25 @@ export function JobAnalysisPanel({ jobId, jobStatus, onJobUpdated, onAnalysisSta
           </p>
           {analysis.status === "failed" && analysis.error_message ? (
             <p className="error-text">{analysis.error_message}</p>
+          ) : null}
+        </div>
+      ) : null}
+
+      {jobStatus === "failed" ? (
+        <div className="job-analysis-retry">
+          <p className="muted small-meta">
+            Structuring failed. Re-queue processing after fixing API keys or network issues.
+          </p>
+          <button
+            className="primary-btn"
+            type="button"
+            disabled={retryStructureBusy}
+            onClick={handleManualProcessJob}
+          >
+            {retryStructureBusy ? "Queueing…" : "Manual process job"}
+          </button>
+          {retryStructureError ? (
+            <p className="error-text">{retryStructureError}</p>
           ) : null}
         </div>
       ) : null}

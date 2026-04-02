@@ -39,3 +39,11 @@ export function updateJobStatus(id, status) {
     body: JSON.stringify({ status }),
   });
 }
+
+/** Re-queue AI structuring after a failed run (server worker processes the job). */
+export function retryJobStructure(id) {
+  return apiRequest(`/jobs/${id}/retry-structure`, {
+    method: "POST",
+    auth: true,
+  });
+}
