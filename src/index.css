@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
 :root {
   --ink-950: #04111f;
@@ -22,8 +22,8 @@
   --shadow-soft: 0 18px 40px rgba(2, 11, 24, 0.2);
   --shadow-strong: 0 26px 56px rgba(2, 10, 21, 0.34);
   --mono: "JetBrains Mono", "Consolas", monospace;
-  --sans: "Manrope", "Segoe UI", sans-serif;
-  --heading: "Syne", "Segoe UI", sans-serif;
+  --sans: "Poppins", "Segoe UI", sans-serif;
+  --heading: "Poppins", "Segoe UI", sans-serif;
 }
 
 * {
